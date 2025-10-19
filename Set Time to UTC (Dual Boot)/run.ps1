@@ -1,3 +1,8 @@
 $registryPath = "HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation"
+
+if (-not (Test-Path $registryPath)) {
+    New-Item -Path $registryPath -Force | Out-Null
+}
+
 Write-Host "[i] Optimizing $registryPath" -ForegroundColor Cyan
-Set-ItemProperty -Path $registryPath -Name "RealTimeIsUniversal" -Value 1 -Type DWord -Force
+New-ItemProperty -Path $registryPath -Name "RealTimeIsUniversal" -Value 1 -PropertyType DWord -Force

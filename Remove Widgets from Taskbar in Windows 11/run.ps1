@@ -1,4 +1,6 @@
-Install-Dependencies 'winget'
+if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
+    Install-Dependencies 'winget'
+}
 winget uninstall 'windows web experience pack' --silent
 $registryPath = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarDeveloperSettings"
 if (-not (Test-Path $registryPath)) {

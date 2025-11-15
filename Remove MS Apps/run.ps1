@@ -76,7 +76,8 @@ $AppxPackages = @(
     "Microsoft.MicrosoftStickyNotes",
     "TikTok.TikTok_8wekyb3d8bbwe",
     "TikTok",
-    "Microsoft.NetworkSpeedTest"
+    "Microsoft.NetworkSpeedTest",
+    "MicrosoftCorporationII.QuickAssist"
 )
 
 $RegistryChanges = @(

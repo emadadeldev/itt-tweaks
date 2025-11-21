@@ -80,10 +80,6 @@ $AppxPackages = @(
     "MicrosoftCorporationII.QuickAssist"
 )
 
-$RegistryChanges = @(
-    @{ Path = "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer"; Name = "NoStartMenuMorePrograms"; Type = "DWord"; Value = 2 },
-    @{ Path = "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer"; Name = "NoStartMenuMorePrograms"; Type = "DWord"; Value = 2 }
-)
 
 foreach ($name in $AppxPackages) {
     try {
@@ -94,22 +90,3 @@ foreach ($name in $AppxPackages) {
         Write-Host "[x] PLEASE USE (WINDOWS POWERSHELL) NOT (TERMINAL POWERSHELL 7) TO UNINSTALL"
     }
 }
-
-foreach ($Reg in $RegistryChanges) {
-    Write-Host "[i] Modifying registry: $($Reg.Path) - $($Reg.Name)"
-    Set-ItemProperty -Path $Reg.Path -Name $Reg.Name -Value $Reg.Value -Type $Reg.Type
-}
-
-$registryPath = "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer"
-if (-not (Test-Path $registryPath)) {
-    New-Item -Path $registryPath -Force | Out-Null
-}
-Write-Host "[i] Optimizing $registryPath" -ForegroundColor Cyan
-Set-ItemProperty -Path $registryPath -Name "NoStartMenuMorePrograms" -Value 2 -Type DWord
-
-$registryPath = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer"
-if (-not (Test-Path $registryPath)) {
-    New-Item -Path $registryPath -Force | Out-Null
-}
-Write-Host "[i] Optimizing $registryPath" -ForegroundColor Cyan
-Set-ItemProperty -Path $registryPath -Name "NoStartMenuMorePrograms" -Value 2 -Type DWord

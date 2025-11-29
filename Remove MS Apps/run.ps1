@@ -85,6 +85,6 @@ foreach ($name in $AppxPackages) {
         Get-AppxPackage -Name $name | Remove-AppxPackage  -ErrorAction SilentlyContinue
         Get-AppxProvisionedPackage -Online | Where-Object DisplayName -like "*$name*" | Remove-AppxProvisionedPackage -Online -ErrorAction SilentlyContinue
     } catch {
-        Write-Host "[x] PLEASE USE (WINDOWS POWERSHELL) NOT (TERMINAL POWERSHELL 7) TO UNINSTALL"
+        Write-Host $_.Exception.Message
     }
 }

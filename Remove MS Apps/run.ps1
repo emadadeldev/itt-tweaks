@@ -82,9 +82,9 @@ $AppxPackages = @(
 foreach ($name in $AppxPackages) {
     try {
         Write-Host "[i] Attempting to remove $name" -ForegroundColor Cyan
-        Get-AppxPackage -Name $name | Remove-AppxPackage -AllUsers -ErrorAction SilentlyContinue
+        Get-AppxPackage -Name $name | Remove-AppxPackage  -ErrorAction SilentlyContinue
         Get-AppxProvisionedPackage -Online | Where-Object DisplayName -like "*$name*" | Remove-AppxProvisionedPackage -Online -ErrorAction SilentlyContinue
     } catch {
-        Write-Host "[!] PLEASE USE (WINDOWS POWERSHELL) NOT (TERMINAL POWERSHELL 7) TO UNINSTALL"
+        Write-Host "[x] PLEASE USE (WINDOWS POWERSHELL) NOT (TERMINAL POWERSHELL 7) TO UNINSTALL"
     }
 }

@@ -49,7 +49,6 @@ $AppxPackages = @(
     "Microsoft.YourPhone",
     "Microsoft.WindowsSoundRecorder",
     "Microsoft.Windows.Cortana",
-    "Microsoft.ScreenSketch",
     "Microsoft.Windows.DevHome",
     "Microsoft.MixedReality.Portal",
     "Microsoft.MSPaint",

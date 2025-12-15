@@ -287,7 +287,7 @@ foreach ($svc in $Services) {
     try {
         $service = Get-Service -Name $svc.Name -ErrorAction Stop
         Set-Service -Name $svc.Name -StartupType $svc.StartupType
-        Write-Host "[i] Disabled service: $($svc.Name)" -ForegroundColor Cyan
+        Write-Host "[i] Service '$($svc.Name)' disabled successfully." -ForegroundColor Cyan
     } catch {
         Write-Host "[!] Service '$($svc.Name)' not found. Skipping..." -ForegroundColor Yellow
     }

@@ -289,6 +289,6 @@ foreach ($svc in $Services) {
         Set-Service -Name $svc.Name -StartupType $svc.StartupType
         Write-Host "[i] Disabled service: $($svc.Name)" -ForegroundColor Cyan
     } catch {
-        Write-Host "[!] Error modifying service '$($svc.Name)': $($_.Exception.Message)" -ForegroundColor Red
+        Write-Host "[!] Service '$($svc.Name)' not found. Skipping..." -ForegroundColor Yellow
     }
 }

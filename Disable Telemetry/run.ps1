@@ -61,3 +61,8 @@ Set-ItemProperty "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\DeliveryO
 Set-ItemProperty "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeliveryOptimization" `
     -Name "DODownloadMode" -Value 0 -Type DWord -Force
     
+Set-ItemProperty "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management" `
+    -Name "ClearPageFileAtShutdown" -Value 0 -Type DWord -Force
+
+Set-ItemProperty "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\UserProfileEngagement" `
+    -Name "ScoobeSystemSettingEnabled" -Value 0 -Type DWord -Force

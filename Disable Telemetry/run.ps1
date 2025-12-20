@@ -51,3 +51,13 @@ Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliver
 
 Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" `
     -Name "SystemPaneSuggestionsEnabled" -Value 0 -Type DWord -Force
+
+Set-ItemProperty "HKLM:\\SOFTWARE\\Microsoft\\Windows\\Windows Error Reporting" `
+    -Name "Disabled" -Value 1 -Type DWord -Force
+
+Set-ItemProperty "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\DeliveryOptimization\\Config" `
+    -Name "DODownloadMode" -Value 0 -Type DWord -Force
+    
+Set-ItemProperty "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeliveryOptimization" `
+    -Name "DODownloadMode" -Value 0 -Type DWord -Force
+    

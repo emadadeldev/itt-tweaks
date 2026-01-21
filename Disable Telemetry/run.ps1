@@ -138,4 +138,4 @@ foreach ($Task in $Tasks) {
 Write-Host "[i] Disable Defender sample submission..." -ForegroundColor Cyan
 Set-MpPreference -SubmitSamplesConsent 2
 
-Write-Host "[✓] Done. Reboot recommended." -ForegroundColor Green
+Write-Host "[i] Done. Reboot recommended." -ForegroundColor Green

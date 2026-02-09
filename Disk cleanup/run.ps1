@@ -13,7 +13,7 @@ cleanmgr.exe /d C: /VERYLOWDISK
 Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase
 wevtutil.exe clear-log "Microsoft-Windows-WindowsUpdateClient/Operational"
 Remove-Item -Path "C:\Windows\Installer\$PatchCache$\*" -Recurse -Force -ErrorAction SilentlyContinue
-Remove-Item -Path "$env:USERPROFILE\Downloads\*" -Recurse -Force -ErrorAction SilentlyContinue
+#Remove-Item -Path "$env:USERPROFILE\Downloads\*" -Recurse -Force -ErrorAction SilentlyContinue
 Write-Host "[i] Clear Edge Cache"
 Remove-Item -Path "$env:LOCALAPPDATA\Microsoft\Edge\User Data\Default\Cache\*" -Recurse -Force -ErrorAction SilentlyContinue
 Remove-Item -Path "$env:LOCALAPPDATA\Google\Chrome\User Data\Default\Cache\*" -Recurse -Force -ErrorAction SilentlyContinue

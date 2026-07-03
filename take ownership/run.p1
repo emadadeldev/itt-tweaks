@@ -1,8 +1,8 @@
-Write-Host '[i] Adding "Take Ownership" to registry...' -ForegroundColor Cyan
+Write-Host '  [i] Adding "Take Ownership" to registry...' -ForegroundColor Cyan
 reg add "HKCR\*\shell\runas" /ve /t REG_SZ /d "Take Ownership" /f
 reg add "HKCR\*\shell\runas" /v "NoWorkingDirectory" /t REG_SZ /d "" /f
 reg add "HKCR\*\shell\runas\command" /ve /t REG_SZ /d "cmd.exe /c takeown /f \"%1\" && icacls \"%1\" /grant administrators:F /c /l & pause" /f
 reg add "HKCR\Directory\shell\runas" /ve /t REG_SZ /d "Take Ownership" /f
 reg add "HKCR\Directory\shell\runas" /v "NoWorkingDirectory" /t REG_SZ /d "" /f
 reg add "HKCR\Directory\shell\runas\command" /ve /t REG_SZ /d "cmd.exe /c takeown /f \"%1\" /r /d y && icacls \"%1\" /grant administrators:F /t /c /l /q & pause" /f
-Write-Host '[i] Added Successfully! Right-click any file/folder to see it.' -ForegroundColor Green
+Write-Host '  [i] Added Successfully! Right-click any file/folder to see it.' -ForegroundColor Green
